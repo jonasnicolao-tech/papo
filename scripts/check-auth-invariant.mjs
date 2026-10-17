@@ -54,7 +54,7 @@ export function compareAuthInvariant({ devAuthEnabled, buildAuthEnabled }) {
     status: "diverged",
     message:
       `[auth-invariant] dev server has sign-in ${label(devAuthEnabled)} but the next ` +
-      `build has it ${label(buildAuthEnabled)}. Start the app with \`npm run dev\` \u2014 ` +
+      `build has it ${label(buildAuthEnabled)}. Start the app with \`npm run dev\` — ` +
       "invoking vite directly skips scripts/with-app-env.mjs, so the dev server and " +
       "the built output resolve .grok/app-env.json differently.",
   };
