@@ -4,7 +4,7 @@ import { getRequest } from "@tanstack/react-start/server";
  * Fetch-Metadata sibling isolation — **server-only** (`.server.ts` suffix).
  *
  * MUST keep the `.server` suffix: this file imports `@tanstack/react-start/server`
- * (`getRequest` \u2192 Node `AsyncLocalStorage`). If it is imported from a dual
+ * (`getRequest` → Node `AsyncLocalStorage`). If it is imported from a dual
  * client/server module under a non-`.server` name, Vite ships it to the browser
  * and the app dies with: `AsyncLocalStorage is not a constructor`.
  *
@@ -33,7 +33,7 @@ export class CrossSiteRequestError extends Error {
 /** Throw `CrossSiteRequestError` for a scripted cross-site/sibling request. */
 export function assertSameSiteRequest(): void {
   const request = getRequest();
-  if (!request) return; // no request context (e.g. build) \u2014 nothing to guard
+  if (!request) return; // no request context (e.g. build) — nothing to guard
   const h = request.headers;
   const site = h.get("sec-fetch-site");
   // Non-browser client (no header), the app's own origin, or a direct
