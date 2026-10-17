@@ -61,7 +61,7 @@ export function handOver(staged, target, { rename = renameSync } = {}) {
     if (err?.code === "EXDEV") {
       throw new Error(
         `${staged} is on another filesystem than ${target}, so the hand-over cannot be a `
-          + "rename — stage under /workspace/.grok/ instead",
+          + "rename \u2014 stage under /workspace/.grok/ instead",
       );
     }
     throw err;
@@ -87,7 +87,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   try {
     handOver(staged, target);
   } catch (err) {
-    console.error(`[write-atomic] ${staged} → ${target} failed: ${err?.message || err}`);
+    console.error(`[write-atomic] ${staged} \u2192 ${target} failed: ${err?.message || err}`);
     process.exit(1);
   }
   console.log(`[write-atomic] wrote ${target}`);
